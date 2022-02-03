@@ -1,0 +1,218 @@
+{% extends 'maintemp.html' %}
+{% load static %}
+
+{% block content%}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+<br>
+<br>
+<div class="profile">
+    <button onclick=window.location='/inserttrans' class="editbutton"><i class="fas fa-plus"></i>&nbsp;Add Transaction</button>
+</div>
+
+<div style="justify-content: space-around;padding: 20px;display: flex; flex-direction: row; flex-wrap: wrap;gap:25px ">
+   <!-- <div>
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <h3 style="text-align: center;"><b>Title: Credit & Debit Transactions</b></h3>  </div>
+    -->
+    <div>{% if chart %}
+        <img src="data:image/png;base64,{{chart|safe}}">
+        
+        {% endif %}</div>
+    <div>    <canvas id="myChart1" width="400" height="400"></canvas>
+    <h3 style="text-align: center;"><b>Title: Credits Vs Debits</b></h3> 
+   </div>
+   <div>
+    <canvas id="myChart2" width="400" height="400"></canvas>
+    <h3 style="text-align: center;"><b>Title: Credit Vs Category</b></h3> 
+   </div>
+   <div>
+    <canvas id="myChart3" width="400" height="400"></canvas>
+    <h3 style="text-align: center;"><b>Title: Debit  Vs Category</b></h3></div> 
+</div>
+
+
+<!-- <script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [' ', ' ', ' ', ' ', ' ', ' '],
+        datasets: [{
+            label: 'Credits',
+            data: {{credit}},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'Debits',
+            data: {{debit}},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        title:{
+            display:true,
+            text: 'Credit and Debit Transactions',
+        },
+        responsive: true,
+     },
+    });
+</script> -->
+
+
+
+<script>
+    var ctx = document.getElementById('myChart1').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['No:of Credits', 'No:of Debits'],
+            datasets: [{
+                label: '.',
+                data: {{trans_count}},
+                backgroundColor: [
+                    'rgba(67, 66, 93, 0.9)',
+                    'rgba(76, 252, 223, 0.9)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(67, 66, 93, 1)',
+                    'rgba(76, 252, 223, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive:true,
+        }
+    });
+    </script>
+
+
+<script>
+    var ctx = document.getElementById('myChart2').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: {{trans_cat_credit|safe}},
+            datasets: [{
+                label: '# of Credits',
+                data: {{credit}},
+                backgroundColor: [
+                    'rgba(252, 76, 99, 0.9)',
+                    'rgba(8, 0, 54, 0.9)',
+                    'rgba(173, 154, 47, 0.9)',
+                    'rgba(77, 255, 187, 0.9)',
+                    'rgba(120, 21, 150, 0.9)',
+                    'rgba(255, 159, 64, 0.9)',
+                    'rgba(67, 66, 93, 0.9)',
+                    'rgba(76, 252, 223, 0.9)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(252, 76, 99, 1)',
+                    'rgba(8, 0, 54, 1)',
+                    'rgba(173, 154, 47, 1)',
+                    'rgba(77, 255, 187, 1)',
+                    'rgba(120, 21, 150, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive:true,
+            
+        }
+    });
+    </script>
+
+
+
+
+
+<script>
+    var ctx = document.getElementById('myChart3').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: {{trans_cat_debit|safe}},
+            datasets: [{
+                label: '# of Debits',
+                data: {{debit}},
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.9)',
+                    'rgba(21, 107, 150, 0.9)',
+                    'rgba(240, 172, 70, 0.9)',
+                    'rgba(75, 192, 192, 0.9)',
+                    'rgba(153, 102, 255, 0.9)',
+                    'rgba(255, 159, 64, 0.9)',
+                    'rgba(67, 66, 93, 0.9)',
+                    'rgba(76, 252, 223, 0.9)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(21, 107, 150, 1)',
+                    'rgba(240, 172, 70, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive:true,
+            
+        }
+    });
+    </script>
+
+
+{% endblock content%}

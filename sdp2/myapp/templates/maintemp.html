@@ -1,0 +1,57 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "css/about.css" %}"/>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+
+
+
+
+
+
+<div class="navbar">
+    <li><a class=active style="font-weight:bold;">MONEY MAGIC</a></li>
+   <li><a href="{% url 'home'%}" class="{% if request.path == "/home/" %}active{% endif %}"><i class="fas fa-home"></i> &nbsp;Home</a></li>
+   <!-- <li><a href="{% url 'home'%}" class="{% if request.path == "/home/" %}active{% endif %}"><i class="fas fa-chart-bar"></i> &nbsp;DashBoard</a></li> -->
+   <li><a href="{% url 'inbox'%}" class="{% if request.path == "/transactions/" %}active{% endif %}"><i class="fas fa-chart-line"></i> &nbsp;Transaction</a></li>
+   <li><a href="{% url 'invoice'%}" class="{% if request.path == "/passbook/" %}active{% endif %}"><i class="fas fa-file-invoice"></i> &nbsp;Passbook</a></li>
+   <li><a href="{% url 'calendar'%}" class="{% if request.path == "/calendar/" %}active{% endif %}"><i class="fas fa-calendar-alt"></i> &nbsp;Calendar</a></li>
+   <li><a href="{% url 'helpcenter'%}" class="{% if request.path == "/help/" %}active{% endif %}"><i class="fas fa-life-ring"></i> &nbsp;Help Center</a></li>
+   <li><a href="{% url 'credits'%}" class="{% if request.path == "/credits/" %}active{% endif %}"><i class="fas fa-coins"></i> &nbsp;Credit Score</a></li>
+   <li><a href="{% url 'aboutus'%}" class="{% if request.path == "/aboutus/" %}active{% endif %}"><i class="fas fa-address-book"></i> &nbsp;About Us</a></li>
+   <li><a href="{% url 'tutorials'%}" class="{% if request.path == "/tutorials/" %}active{% endif %}"><i class="fas fa-book"></i> &nbsp;Tutorials</a></li>
+</div>
+
+<div class="toolbar">
+<span class="space1"></span>&nbsp;
+<a><i class="fas fa-search"></i>
+<input placeholder="search transactions,invoice or help" class="searchbar"></input></a>
+<span class=space></span>
+<span class="space"></span>
+<span class="space"></span><span class="space"></span><span class="space"></span>
+<span class="space"></span><span class="space1"></span>
+<a href="{% url 'logout'%}"><span class="material-icons-outlined">logout</span></a>&nbsp;<span class="space1"></span>
+<a href="{% url 'helpcenter' %}"><span class="material-icons-round">question_answer</span></a>&nbsp;<span class="space1"></span>
+<a href="{% url 'inserttrans' %}"><span class="material-icons-round">add</span></a>&nbsp;<span class="space1"></span>
+<a href="{% url 'profile'%}">{{user.username}}</a><span class="space1"></span>
+<a href="{% url 'profile' %}">
+<img src="{% static "media/profile.png" %}" style="width:50px; height:40px; border-radius:50%;">
+</a><span class="space1"></span>
+</div>
+
+
+<div class="content" >
+    <div style="padding-left:2px">
+      {% block content %}
+
+      {% endblock  %}
+    </div>
+    
+</div>
+
+
+
+<div class="footer" onclick=window.location="/aboutus">
+   <p>© Copyright 2021 | Money Magic</p>
+</div>

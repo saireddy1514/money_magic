@@ -1,0 +1,151 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}"/>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Thasadith:wght@700&family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+<style>
+
+.child {
+	flex: 1;
+	margin-left: 20px;
+	/* border: 2px solid yellow; */
+}
+
+.child1 {
+	position: relative;
+	text-align: center;
+	color: black;
+}
+
+.all {
+	display: flex;
+	
+}
+.center {
+	display: flex;
+	align-items: right;
+	justify-content: flex-end;
+	margin-top: 20%;
+	margin-right: 30%;
+}
+.center1 {
+	display: flex;
+	align-items: right;
+	justify-content: flex-end;
+	margin-top: 15%;
+	margin-right: 75%;
+}
+
+.card {
+	text-align: center;
+	min-width: 350px;
+	min-height: 300px;
+	/* border-radius: 4px; */
+	background-color: #fff;
+	/* font-family: 'Quicksand', sans-serif; */
+	font-family: 'montserrat', sans-serif;
+
+
+}
+
+.input {
+	margin: 8%;
+	width: 75%;
+	padding: 15px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: none;
+	outline: none;
+	color:black;
+    border-radius: 1px;
+	background-color: #fff;
+	border-bottom: 1px solid rgb(5, 5, 5);
+    opacity:.8;
+}
+.input::placeholder{
+	font-family: 'montserret', sans-serif;
+	color: black;
+	font-size: 16px;
+
+}
+.button{
+width: 130px;
+height: 35px;
+background: #43425D 0% 0% no-repeat padding-box;
+border: 1px solid #43425D;
+border-radius: 4px;
+opacity: 1;
+color:white;
+cursor: pointer;
+outline: none;
+transition: 0.5s ease;
+}
+.button:hover {
+transform: scale(1.02);
+}
+.singupbut{
+width: 130px;
+height: 35px;
+border: 1px solid #43425D;
+border-radius: 4px;
+opacity: 1;
+cursor: pointer;
+outline: none;
+transition: 0.5s ease;
+}
+.singupbut:hover{
+  transform: scale(1.02);
+  
+}
+.space{
+
+   padding: 10px;
+
+}
+</style>
+<div class="all">
+      <div class="child">
+         <div class="child1">
+         <div>
+              <img src="{% static "media/regside.png" %}" style="width: 600px; height: 655px;" alt="My image"/>
+         </div>
+         </div>
+      </div>
+      <div class="child">
+         <div class='center'>
+            <div class='card'>
+				<h2 style="font: normal normal bold 25px/16px Source Sans Pro;letter-spacing: 5px;color: #43425D;">MONEY MAGIC</h2>
+				   <p style="font: normal normal normal Montserrat;color: #4D4F5C;">Welcome back! please login into your account </p><br>
+				 <form method="POST" action="">
+					 {% csrf_token %}
+					<input type='text' class="input" name="username" placeholder='Username' required>
+					<input type='password' class="input" name="password" placeholder='Password' id='password' required><br><br>
+					<input type="checkbox" id="box" onclick="spassword()">
+					<label  style="text-decoration:none; color:black;" for='box' href= 'spassword()'>Show Password</label>&nbsp; &nbsp;|&nbsp;&nbsp;
+					<a href="{% url 'reset_password' %}" style="text-decoration:none; color:black;" >Forgot Password ?</a><br><br><br>
+					
+				   <button class='button' type="submit">Login</button></form>
+				   
+				   <button class='singupbut' onclick=window.location='/register';>Sign Up</button><br>
+				  
+				</div>
+         </div>
+      </div>
+   </div>
+
+
+<div class="footer">
+<p>© Copyright 2021 | Money Magic</p>
+</div>
+
+
+
+<script>
+	function spassword() {
+	if(document.getElementById('box').checked)
+	   {document.getElementById("password").type='text';}
+	else
+	document.getElementById("password").type='password';
+	}
+	 
+	</script>

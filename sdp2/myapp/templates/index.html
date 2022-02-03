@@ -1,0 +1,76 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}"/>
+<div style="background-size:cover; height:100vh;" alt="back" class="background">
+
+<button class="loginbut" onclick=window.location="/login">Login</button>
+<button class="regbut"onclick=window.location="/register">Register</button>
+{% comment %} <h1 class="heading">MONEY MAGIC</h1> {% endcomment %}
+<p class="par">MONEY MAGIC <br>
+  
+  <a>Manage your money magically !!</a>
+</p>
+  
+<img src={% static "media/main1.png" %} style="width:40%;" class="img">
+</div>
+{% comment %} <div class="indeximg"></div> {% endcomment %}
+<div class="footer">
+<p>© Copyright 2021 | Money Magic</p>
+</div>
+<style>
+.background {
+    background-color:white;
+animation: fadein 4s;
+-webkit-animation: fadein 4s; 
+}
+
+@-webkit-keyframes fadein { 
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+.img{
+    padding-left:15%;
+    padding-top:15%;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 24px;
+}
+
+.par {
+  font-weight: 700;
+  text-align: center;
+  font-size: 40px;
+  /*font-family: Hack, sans-serif;*/
+  family-family:montserrat;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #fff, #000, #fff);
+  letter-spacing: 5px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: shine 10s linear infinite;
+  position: relative;
+  padding-top:7%;
+  padding-left:15%;
+  position:absolute;
+}
+
+@keyframes shine {
+  0% {
+    background-position-x: -500%;
+  }
+  100% {
+    background-position-x: 500%;
+  }
+}
+</style>

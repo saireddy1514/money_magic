@@ -1,0 +1,59 @@
+{% extends 'maintemp.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    
+.input {
+	margin: 8%;
+	width: 100%;
+	padding: 15px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: none;
+	outline: none;
+	color:black;
+    border-radius: 1px;
+	background-color: #fff;
+	border-bottom: 1px solid rgb(5, 5, 5);
+    opacity:.8;
+}
+</style>
+<h2>Update Transaction</h2>
+<form method="POST" action="{% url 'updatecode'%}">
+    {% csrf_token %}
+	<!-- <table>
+    {% for f in form.visible_fields %}
+ 	<tr><td>{{f.label_tag}}</td>
+	<td>{{f}}</td>
+    </tr>
+    {%endfor%}
+</table> -->
+
+<input type="hidden" name="tid" value="{{tid}}"/>
+<table>
+<tr><td>Transaction Date:-</td>
+	<td><input type="date" class="input" name="tdate" placeholder="Transaction Date"/>
+	</td></tr>
+
+<tr><td>Transaction Category</td>
+	<td><input type="text" class="input" name="tcategory" placeholder="Transaction Category"/></td></tr>
+<tr><td>Credit Amount</td><td><input type="text" class="input" name="tcredit" placeholder="Credit Amount" value="0"/>
+</td></tr>	
+<tr><td>Debit Amount</td><td><input type="text" class="input" name="tdebit" placeholder="Debit Amount" value="0"/>
+</td></tr>
+<tr><td>Transaction Description</td>
+<td><input type="text" class="input" name="tdesc" placeholder="Transaction Description"/>
+</td>
+</tr>
+</table>
+<div class="profile">
+
+    <input type="submit" value="Update Transaction" class="editbutton">
+	
+	</div>
+</form>
+
+
+{% endblock content %}

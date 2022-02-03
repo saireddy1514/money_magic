@@ -1,0 +1,49 @@
+{% extends "maintemp.html"%}
+{% load static%}
+
+
+{% block content%}
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+<div class="creditscore" style="width: fit-content;box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);float: right; background-color:#43425D; border-radius:15px;color:white;"><h4> &nbsp;&nbsp;Credit Score:- &nbsp;<i class='fas fa-coins' style='font-size:18px;color: gold;' ></i>
+    {{creditscore}}&nbsp;&nbsp;</h4></div>
+<h3 style="font-family:montserrat">Your Creditscore</h3>
+
+{% for c in credit %}
+<div class="creditcard">
+ <p class="head">{{c.tran_date}}</p>
+
+<span class="score" style="margin-left:50px;">
+<img src={% static "media/coin.png"%} style="width:50px;">
+<br>
+<strong style="margin-left:60px;">+25</strong>
+</span>
+ <div class="mission">
+ <strong>Mission</strong>
+<p>Transaction Credited Succesfully</p>
+ </div>
+</div>
+{% endfor %}
+{% for d in debit %}
+<div class="creditcard">
+ <p class="head">{{d.tran_date}}</p>
+
+<span class="score" style="margin-left:50px;">
+<img src={% static "media/coin.png"%} style="width:50px;">
+<br>
+<strong style="margin-left:60px;">-10</strong>
+</span>
+ <div class="mission">
+ <strong>Mission</strong>
+<p>Transaction Debited Succesfully</p>
+ </div>
+</div>
+{% endfor %}
+ {% endblock %}
+
+{% for contents in content  %}
+
+{{contents}}
+
+{% endfor %}
+

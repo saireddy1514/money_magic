@@ -1,0 +1,32 @@
+{% extends 'maintemp.html' %}
+
+{% load static %}
+
+{% block content %}
+<h3 style="font-family:montserrat">Profile</h3>
+
+<div class="profilecard ">
+    <span class="img">
+    <img src={% static "media/profileimg.png"%} style="width:15%; padding-top:5%;padding-left:20px;">
+    <p style="padding-left:6%;">{{user.username}}</p>
+    </span>
+    <div style="padding-left:25%; margin-top:-15%;" class="profile">
+    <input placeholder="{{user.first_name}}" class="input" disabled/>&nbsp;&nbsp;
+    <input placeholder="{{user.last_name}}" class="input" disabled /><br><br>
+    <input placeholder="{{user.username}}" class="input" disabled />&nbsp;&nbsp;
+    <input placeholder="{{user.email}}" class="input" disabled /><br><br><br><br>
+    <button class="editbutton" onclick=window.location={% url 'editprofile'%}>Edit Profile
+     <span class="material-icons-outlined" style="font-size:14px;">edit</span>
+     </button>
+
+
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
+
+
+

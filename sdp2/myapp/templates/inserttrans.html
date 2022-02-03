@@ -1,0 +1,41 @@
+{% extends 'maintemp.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    
+.input {
+	margin: 8%;
+	width: 100%;
+	padding: 15px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: none;
+	outline: none;
+	color:black;
+    border-radius: 1px;
+	background-color: #fff;
+	border-bottom: 1px solid rgb(5, 5, 5);
+    opacity:.8;
+}
+</style>
+<h2>Insert Transaction</h2>
+<form method="POST" >
+    {% csrf_token %}
+	<table>
+    {% for f in form.visible_fields %}
+ 	<tr><td>{{f.label_tag}}</td>
+	<td>{{f}}</td>
+    </tr>
+    {%endfor%}
+</table>
+	<div class="profile">
+
+    <input type="submit" value="Insert Transaction" class="editbutton">
+	
+	</div>
+</form>
+
+
+{% endblock content %}

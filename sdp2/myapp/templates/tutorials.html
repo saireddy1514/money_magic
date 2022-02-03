@@ -1,0 +1,36 @@
+{% extends 'maintemp.html' %}
+{% load static %}
+
+
+
+{% block content%}
+<h3 style="font-family:montserrat">TUTORIALS / COURSES</h3>
+
+<div style="justify-content: space-around;padding: 20px;display: flex; flex-direction: row; flex-wrap: wrap;gap:25px ">
+<a class="tutcard" href="https://www.udemy.com/course/finance-101/" target="_blank">
+         <img src="{% static "media/finan1.png" %}" style="max-width:280px; border-radius:5px;">
+         <h1 style="font-family:papyrus;">Learn &<br> Master the Basics of Finance </h1>
+         <p class="title">Udemy</p>
+        </a>
+        <a class="tutcard" href="https://alison.com/courses/finance" target="_blank">
+            <img src="{% static "media/finan2.png" %}" style="max-width:280px; border-radius:5px;">
+            <h1 style="font-family:papyrus;">Finance Freedom:-<br> Beginers Course </h1>
+            <p class="title">Alison</p>
+           </a>
+           <a class="tutcard" href="https://www.khanacademy.org/economics-finance-domain/core-finance" target="_blank">
+            <img src="{% static "media/finan3.png" %}" style="max-width:280px; border-radius:5px;">
+            <h1 style="font-family:papyrus;">Finance and Capital Markets</h1>
+            <p class="title">KhanAcademy</p>
+           </a>
+           <a class="tutcard" href="https://www.edx.org/learn/finance" target="_blank">
+            <img src="{% static "media/finan4.png" %}" style="max-width:280px; border-radius:5px;">
+            <h1 style="font-family:papyrus;">Finance Management Statistics </h1>
+            <p class="title">Edx</p>
+           </a>
+           <a class="tutcard" href="https://www.lynda.com/Finance-training-tutorials/1315-0.html" target="_blank">
+            <img src="{% static "media/finan5.png" %}" style="max-width:280px; border-radius:5px;">
+            <h1 style="font-family:papyrus;">Finance Management Training  </h1>
+            <p class="title">Lynda</p>
+           </a>
+ </div>
+{% endblock%}

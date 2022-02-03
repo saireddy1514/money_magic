@@ -1,0 +1,280 @@
+body {
+    margin: 0;
+    }
+    a{
+      font-family:montserrat;
+      color:inherit;
+      text-decoration:none;
+    }
+    .navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 13%;
+    background-color: #43425D;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    text-align:left;
+    }
+    li a {
+    display: block;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    }
+    li a.active {
+    background-color: #0000001A;
+    color: white;
+    }
+    li a:hover:not(.active) {
+    background-color: #0000001A;
+    color: white;
+    }
+    .toolbar{
+    display:flex;
+    position:fixed;
+    top: 9px;
+    margin-left: 14%;
+    width: 85%;
+    height: 50px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: -2px 2px 6px #0000000A;
+    border: 1px solid #CACED5;
+    border-radius: 31px;
+    opacity: 1;
+    align-items:center;
+    }
+    .toolbar a{
+    float:right;
+    text-decoration:none;
+    color:inherit;
+    }
+    .space{
+    flex:.2 1 auto;
+    }
+    .space1{
+    flex: .01 1 auto;
+    }
+ .searchbar{
+    padding:10px;
+    border:none;
+    outline:none;
+    width:300px;
+    font-family:montserrat;
+    background-color:white;
+    border-radius:10px;
+ }
+ .card {
+     text-align: center;
+     min-width: 200px;
+     min-height: 180px;
+   background: #E9E9FF ;
+   box-shadow: 0px 3px 6px #00000029;
+   border-radius: 21px;
+   opacity: 0.58;
+     font-family: 'montserrat', sans-serif;
+   font-size:14px;
+ }
+ 
+ .content{
+ margin-left:16%;
+ padding:1px 16px;
+ height:100%;
+ padding-top:4%;
+  /* position:fixed; */
+ font-family: 'Montserrat', sans-serif;
+ }
+
+ .footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(9, 1, 27, 0.904);
+    /* background-color: #fff; */
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family:montserrat;
+    opacity:.8;
+}
+
+.pcard {
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+  max-width: 300px;
+  max-height:700px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  border-radius: 6px; 
+  box-shadow: 1px 2px 10px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  margin-top:5%;
+  
+  }
+  .pcard:hover {
+      transform: scale(1.05);
+      box-shadow: 5px 5px 10px #706b6b;
+  }
+  .pcard .title {
+    color: rgb(78, 75, 75);
+    font-size: 18px;
+    font-family:papyrus;
+    font-weight: bold;
+  }
+  .pcard button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: rgb(48, 9, 9);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 5px; 
+  }
+  .pcard button:hover {
+    background-color: rgb(236, 167, 134);
+    color: black;
+  }
+
+  .creditcard{
+    min-width: 850px;
+    min-height:150px;
+    margin: auto;
+    float: left;
+    font-family: montserrat;
+    /* border-radius: 6px;  */
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: 0.5s ease;
+      margin-top:4%;
+  }
+  .creditcard:hover{
+box-shadow: 0px 5px 8px #ccc;     
+  }
+.creditcard .head{
+    text-align: center;
+}
+.creditcard .score{
+    /* float:left; */
+    margin-right: 50px;
+    align-items: center;
+}
+.creditcard .mission{
+    padding-left: 17%;
+    margin-top: -8%;
+    width: 100%;
+}
+
+
+.helpcard{
+  max-width: 850px;
+  min-height:150px;
+  margin: auto;
+  float: left;
+  font-family: montserrat;
+  /* border-radius: 6px;  */
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 13px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  margin-top:4%;
+  background-color: #43425D;
+}
+
+.helpcard:hover{
+  box-shadow: 0px 5px 8px #ccc;     
+
+}
+
+.profilecard{
+  min-width: 550px;
+  min-height:350px;
+  margin: auto;
+  /* float: center; */
+  font-family: montserrat;
+  /* border-radius: 6px;  */
+  box-shadow: 0px 3px 6px #7e7e7e;
+  border-radius: 5px;
+  margin-top:5%;
+  background-color: #fff;
+}
+
+.profilecard .pic{
+  width:15%;
+   padding-top:5%;
+   padding-left:20px;
+}
+
+.tutcard{
+  min-width: 500px;
+  min-height:400px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  border-radius: 6px; 
+  box-shadow: 1px 2px 10px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  background-color: white;
+}
+.tutcard:hover{
+  /* transform: scale(1.2); */
+  box-shadow: 5px 5px 10px #706b6b;
+}
+.profile .input{
+  padding:14px;
+  border:none;
+  outline:none;
+  width:300px;
+  font-family:montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  background-color:rgb(255, 255, 255);
+  border-radius:1px;
+  border-bottom: 1px solid rgb(5, 5, 5);
+
+}
+.profile .editbutton{
+  width: 130px;
+  height: 35px;
+  background: #43425D 0% 0% no-repeat padding-box;
+  border: 1px solid #43425D;
+  border-radius: 4px;
+  opacity: 1;
+  color:white;
+  cursor: pointer;
+  outline: none;
+  transition: 0.5s ease;
+  text-align: center;
+  font-family: montserrat;
+  }
+  .profile .editbutton:hover {
+  transform: scale(1.02);
+  }
+
+  .break {
+width: 100%;
+  }
+  .combutton{
+    width: 130px;
+    height: 35px;
+    background: #43425D 0% 0% no-repeat padding-box;
+    border: 1px solid #43425D;
+    border-radius: 4px;
+    opacity: 1;
+    color:white;
+    cursor: pointer;
+    outline: none;
+    transition: 0.5s ease;
+    text-align: center;
+    font-family: montserrat;
+    }
+    .combutton:hover {
+    transform: scale(1.02);
+    }

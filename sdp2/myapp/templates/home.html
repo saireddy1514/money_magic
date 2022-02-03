@@ -1,0 +1,303 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}"/>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+<style>
+   body {
+   margin: 0;
+   }
+   a{
+     font-family:montserrat;
+     color:inherit;
+     text-decoration:none;
+   }
+   .navbar {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   width: 13%;
+   background-color: #43425D;
+   position: fixed;
+   height: 100%;
+   overflow: auto;
+   text-align:left;
+   }
+   li a {
+   display: block;
+   color: white;
+   padding: 16px 32px;
+   text-decoration: none;
+   }
+   li a.active {
+   background-color: #0000001A;
+   color: white;
+   }
+   li a:hover:not(.active) {
+   background-color: #0000001A;
+   color: white;
+   }
+   .toolbar{
+   display:flex;
+   position:fixed;
+   top: 9px;
+   margin-left: 14%;
+   width: 85%;
+   height: 50px;
+   background: #FFFFFF 0% 0% no-repeat padding-box;
+   box-shadow: -2px 2px 6px #0000000A;
+   border: 1px solid #CACED5;
+   border-radius: 31px;
+   opacity: 1;
+   align-items:center;
+   }
+   .toolbar a{
+   float:right;
+   text-decoration:none;
+   color:inherit;
+   }
+   .space{
+   flex:.2 1 auto;
+   }
+   .space1{
+   flex: .01 1 auto;
+   }
+
+.card {
+	text-align: center;
+	min-width: 200px;
+	min-height: 180px;
+  background: #E9E9FF ;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 21px;
+  opacity: 0.58;
+	font-family: 'montserrat', sans-serif;
+  font-size:14px;
+}
+
+.content{
+margin-left:16%;
+padding:1px 16px;
+height:100%;
+padding-top:4%;
+ position:fixed;
+font-family: 'Montserrat', sans-serif;}
+
+
+.transbutton{
+width: 85px;
+height: 25px;
+background: #8BEABA 0% 0% no-repeat padding-box;
+box-shadow: 0px 3px 6px #00000029;
+border-radius: 7px;
+opacity: 1;
+color:black;
+border:none;
+cursor: pointer;
+outline: none;
+transition: 0.5s ease;
+}
+.transbutton:hover {
+transform: scale(1.02);
+}
+
+.popup .popuptext {
+  visibility: hidden;
+  padding: 16px;
+  background-color: #E9E9FF;
+  color: black;
+opacity:.7;
+}
+
+.popup .show {
+  position:fixed;
+  top:10%;
+  left:60%;
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+.alert {
+  padding: 20px;
+  background-color: #8BEABA;
+  color: black;
+  font-family:montserrat;
+  opacity:1;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+ .searchbar{
+    padding:10px;
+    border:none;
+    outline:none;
+    width:300px;
+    font-family:montserrat;
+    background-color:white;
+    border-radius:10px;
+ }
+.homecard{
+  min-width: 200px;
+  min-height:70px;
+  margin: 5px;
+  font-family: montserrat;
+  /* box-shadow: 0px 3px 6px #00000029; */
+  border-radius: 7px;
+  transition: 0.5s ease;
+  margin-top:4%;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 0px 2px 6px #00000029;
+opacity: 1;
+}
+.minicard{
+   min-width:200px;
+   min-height:100px;
+  box-shadow: 0px 2px 6px #00000027;
+   background-color:#fff;
+   border-radius:5px;
+   text-align:center;
+ }
+</style>
+<span class="navbar">
+    <li><a class=active style="font-weight:bold;">MONEY MAGIC</a></li>
+    <li><a href="{% url 'home'%}" class="{% if request.path == "/home/" %}active{% endif %}"><i class="fas fa-home"></i> &nbsp;Home</a></li>
+    <!-- <li><a href="{% url 'home'%}" class="{% if request.path == "/home/" %}active{% endif %}"><i class="fas fa-chart-bar"></i> &nbsp;DasshBoard</a></li> -->
+   <li><a href="{% url 'inbox'%}" class="{% if request.path == "/transactions/" %}active{% endif %}"><i class="fas fa-chart-line"></i> &nbsp;Transaction</a></li>
+   <li><a href="{% url 'invoice'%}" class="{% if request.path == "/passbook/" %}active{% endif %}"><i class="fas fa-file-invoice"></i> &nbsp;Passbook</a></li>
+   <li><a href="{% url 'calendar'%}" class="{% if request.path == "/calendar/" %}active{% endif %}"><i class="fas fa-calendar-alt"></i> &nbsp;Calendar</a></li>
+   <li><a href="{% url 'helpcenter'%}" class="{% if request.path == "/help/" %}active{% endif %}"><i class="fas fa-life-ring"></i> &nbsp;Help Center</a></li>
+   <li><a href="{% url 'credits'%}" class="{% if request.path == "/credits/" %}active{% endif %}"><i class="fas fa-coins"></i> &nbsp;Credit Score</a></li>
+   <li><a href="{% url 'aboutus'%}" class="{% if request.path == "/aboutus/" %}active{% endif %}"><i class="fas fa-address-book"></i> &nbsp;About Us</a></li>
+   <li><a href="{% url 'tutorials'%}" class="{% if request.path == "/tutorials/" %}active{% endif %}"><i class="fas fa-book"></i> &nbsp;Tutorials</a></li>
+
+</span>
+<div class="toolbar">
+<span class="space1"></span>&nbsp;
+<a><i class="fas fa-search"></i>
+<input placeholder="search transactions,invoice or help" class="searchbar"></input></a>
+<span class=space></span>
+<span class="space"></span>
+<span class="space"></span><span class="space"></span><span class="space"></span>
+<span class="space"></span><span class="space1"></span>
+<a href="{% url 'logout' %}"><span class="material-icons-outlined">logout</span></a>&nbsp;<span class="space1"></span>
+<a href="{% url 'helpcenter' %}"><span class="material-icons-round">question_answer</span></a>&nbsp;<span class="space1"></span>
+<a href="{% url 'inserttrans' %}"><span class="material-icons-round">add</span></a>&nbsp;<span class="space1"></span>
+<a href="{% url 'profile'%}">{{user.username}}</a><span class="space1"></span>
+<a href="{% url 'profile' %}">
+<img src="{% static "media/profile.png" %}" style="width:50px; height:40px; border-radius:50%;">
+</a>
+<span class="space1"></span>
+</div>
+
+
+<div class="content">
+    <div style="padding-left:2px">
+      
+    <br>
+    <marquee id="greets" scrollamount=4></marquee>
+    <h3>Overview</h3>
+<!-- <iframe width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=fdcd24f0-4ce3-48e1-85ba-d48ce58958c5&autoAuth=true&ctid=808cc83e-a546-47e7-a03f-73a1ebba24f3&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLXNvdXRoLWVhc3QtYXNpYS1yZWRpcmVjdC5hbmFseXNpcy53aW5kb3dzLm5ldC8ifQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe> -->
+<div style="display:flex; flex-direction:row; gap:150px;">
+  <div class="minicard">
+    <p style=" padding-top:5%; color: blue;">Total Savings <i class="fas fa-wallet" style="color: darkblue;"></i> </p>
+    <strong> {{balance}} </strong>
+    </div>
+  <div class="minicard">
+    <p style=" padding-top:5%; color:green;">Amount Credited <i class="fas fa-arrow-up" style="color: darkgreen;"></i></p>
+    <strong> {{totalcredit}} </strong>
+ 
+  </div>
+<div class="minicard">
+    <p style=" padding-top:5%; color:red;">Amount Debited <i class="fas fa-arrow-down" style="color: darkred;"></i></p>
+    <strong> {{totaldebit}} </strong>
+  </div>
+
+
+</div>
+<br>
+    </div>
+    
+    
+</div>
+<div>
+<div style="display:flex; flex-direction:column;gap:25px; float:right;margin-right:3%; margin-top:6%;">
+    <!--<div class="card">
+    <h3>Transactions</h3>
+    lorem ipsum
+    <p>lorem ipsum</p><br>
+    <button class="transbutton" onclick=location.href='/time'>View All ></button>
+    </div>
+    <div class="card">
+    <h3>Alerts</h3>
+    <span class="material-icons-round" style="font-size:90px; color:red;">notifications</span><br>
+      <button class="transbutton" style="background-color:#C4C2FD;">View All ></button>
+
+    </div>-->
+    <div class="card">
+    <h3>Tips & Suggestions</h3>
+    <a onclick="myfun()" href="{% url 'tips'%}">Give me a tip<br> or <br>a suggestion<br><br><i class="fas fa-arrow-right fa-2x"></i></a>
+    <!-- <button onclick="myfun()">Hii</button> -->
+    </div>
+    </div>
+
+       
+</div>
+{% if tip %}
+<div class="alert" id="sad" style="position: fixed;top: 15%; left: 58%;width: fit-content;">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      <strong>Tip:- {{tip}}</strong> 
+    </div>
+    {% endif %}
+<div class="footer" onclick=window.location="/aboutus">
+   <p>© Copyright 2021 | Money Magic</p>
+</div>
+
+<script>
+  function myfun(){
+    var x = document.getElementById("sad")
+    if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  }
+</script>
+
+
+<script>
+  var myDate = new Date();
+  var hrs = myDate.getHours();
+
+  var greet;
+  var bal ={{balance}};
+  var msg;
+
+    
+
+  if (hrs < 12)
+      greet = 'Good Morning 👋🏻';
+  else if (hrs >= 12 && hrs <= 17)
+      greet = 'Good Afternoon 👋🏻';
+  else if (hrs >= 17 && hrs <= 24)
+      greet = 'Good Evening 👋🏻';
+ if (bal > 4000)
+      msg= 'Good Progress in your Account &#128512;';
+  else 
+      msg = 'You are running out of your Money &#128533;';
+
+
+  document.getElementById('greets').innerHTML =
+       greet + '<b> {{user.first_name}} </b>' +' and Welcome to Money Magic!! ' + ' Your Available Balance is : <b>'+' {{balance}} </b>'+ msg ;
+</script> 

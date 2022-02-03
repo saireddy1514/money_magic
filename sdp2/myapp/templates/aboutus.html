@@ -1,0 +1,35 @@
+{% extends "maintemp.html"%}
+{% load static%}
+
+
+{% block content%}
+<h3 style="font-family:montserrat">TEAM</h3>
+<div style="display:flex; flex-direction:row; gap:30px;">
+<div class="pcard">
+         <img src="{% static "media/pavan.png" %}" style="max-width:280px; border-radius:5px;">
+         <h1 style="font-family:papyrus;">Pavan Sai <BR> Gontina</h1>
+         <strong style='font-family:montserrat'>190030524</strong>
+          <p class="title">Batch : 104</p>
+          <p style='font-family:montserrat'>2nd Year CSE</p>
+          
+ </div>
+
+<div class="pcard">
+         <img src="{% static "media/dheeraj.png" %}" style="max-width:280px;border-radius:5px;">
+         <h1 style="font-family:papyrus;">Dheeraj <BR>Satyavarapu</h1>
+         <strong style='font-family:montserrat'>190031476</strong>
+          <p class="title">Batch : 104</p>
+          <p style='font-family:montserrat'>2nd Year CSE</p>
+          
+ </div>
+ <div class="pcard">
+         <img src="{% static "media/saireddy.png" %}" style="max-width:280px;border-radius:5px;">
+         <h1 style="font-family:papyrus;">Sai Reddy <BR> Dwarampudi</h1>
+         <strong style='font-family:montserrat'>190030431</strong>
+          <p class="title">Batch : 104</p>
+          <p style='font-family:montserrat'>2nd Year CSE</p>
+          
+ </div>
+
+ </div>
+{% endblock%}
